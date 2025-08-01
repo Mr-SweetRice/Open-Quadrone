@@ -6,7 +6,7 @@
 
 // Instancia o framework OpenQuadrone
 OpenQuadrone quad(CustomIMU, SDA, SCL);
-float alt;
+
 float X, Y, Z;
 void setup() {
   // Inicializa IMU e Serial
@@ -15,9 +15,9 @@ void setup() {
 }
 
 void loop() {
-  //quad.kalmanFilter();
-  //quad.readRaw();
-  getAngles(roll,pitch,yaw)
-  quad.getAltitude(alt);
-  Serial.println(alt);
-}
+  quad.getAngles(X, Y, Z);
+  
+  Serial.print("XDS:= "); Serial.print(X);
+  Serial.print(" YDS:= "); Serial.print(Y);
+  Serial.print(" ZDS:= "); Serial.println(Z);
+} 
